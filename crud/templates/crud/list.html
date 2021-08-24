@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Info List</title>
+    <style>
+        table{
+            width: 100%;
+        }
+        td, th{
+            padding: 10px;
+        }
+        tr:nth-child(even){
+            background: #bdb6bd;
+        }
+    </style>
+
+</head>
+<body>
+    <h1>List of all Users </h1>
+    <h3><a href={% url 'crud:create' %}>Create User</a></h3>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Middle Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        {% for u in data %}
+        <tr>
+            <td>{{ u.id }}</td>
+            <td>{{ u.first_name }}</td>
+            <td>{% if u.middle_name %}
+                {{ u.middle_name }}
+                {% else %}
+                -
+                {% endif %}
+            </td>
+            <td>{{ u.last_name }}</td>
+            <td>{{ u.email }}</td>
+            <td>
+                <a href={% url 'crud:detail' u.id %}>Details</a>/
+                <a href={% url 'crud:update' u.id %}>Update</a>/
+                <a href={% url 'crud:delete' u.id %}>Delete</a>
+
+
+            </td>
+        </tr>
+        {% endfor %}
+        <!-- <tr>
+            <th>2</th>
+            <th>Ram</th>
+            <th>kumar</th>
+            <th>Basnet</th>
+            <th>ramkumar@gmail.com</th>
+        </tr>
+        <tr>
+            <th>3</th>
+            <th>hari</th>
+            <th>kumar</th>
+            <th>Shakya</th>
+            <th>hari@gmail.com</th>
+        </tr> -->
+
+    </table>
+
+</body>
+</html>

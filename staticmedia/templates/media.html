@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+    <head>
+
+        <body>
+            <form method="POST"  enctype="multipart/form-data">
+                {% csrf_token %}
+                Full Name: <input type="text" name="name">
+                File: <input type= "file" name="myfile">
+                <button type="submit">Submit</button>
+            </form>
+            <img src="/media/viber_image_2021-06-29_11-56-32.jpg" alt="">
+        </body>
+    </head>
+</html>

@@ -1,0 +1,7 @@
+
+<form method="post" action="/forms/django-home">
+    {% csrf_token %}
+    {% comment %} {{form}} {% endcomment %}
+    {{ form.as_p }}
+    <input type="submit" name="Submit">
+</form>
