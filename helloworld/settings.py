@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'staticmedia',
     'crud',
     'classbased',
+    'userprofile',
     'user',
     
 ]
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'helloworld.middleware.MyCustomMiddleware',
 ]
 
 ROOT_URLCONF = 'helloworld.urls'
@@ -82,7 +84,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworld.wsgi.application'
 
-
+# CACHES = {
+#     'default':{
+#         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
+#         'LOCATION':'Cache_Table'
+#     }
+# }
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -152,3 +159,11 @@ AUTH_USER_MODEL = 'user.User'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# EMAIL_HOST = 'smtp.mailtrap.io'
+# EMAIL_HOST_USER = '8541ac6d08cf23'
+# EMAIL_HOST_PASSWORD = 'a7428a26bb27c7'
+# EMAIL_PORT = '2525'
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'home'
