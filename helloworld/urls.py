@@ -22,6 +22,8 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth.views import LoginView, LogoutView
 from userprofile import views as user_views
+from django.views.generic import FormView
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     
@@ -41,6 +43,10 @@ urlpatterns = [
     path('login/', LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
     path('', user_views.home, name='home'),
+    path('contact/',user_views.contact, name='contact'),
+
+
+    
 
 
 

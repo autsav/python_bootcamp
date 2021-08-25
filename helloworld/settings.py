@@ -160,10 +160,18 @@ AUTH_USER_MODEL = 'user.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+#using mailtrap.io
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '8541ac6d08cf23'
+EMAIL_HOST_PASSWORD = 'a7428a26bb27c7'
+EMAIL_PORT = '2525'
 
-# EMAIL_HOST = 'smtp.mailtrap.io'
-# EMAIL_HOST_USER = '8541ac6d08cf23'
-# EMAIL_HOST_PASSWORD = 'a7428a26bb27c7'
-# EMAIL_PORT = '2525'
+#using gmail
+# EMAIL_USE_TLS = True
+# EMAIL_HOST = 'smtp.gmail.com'
+# EMAIL_HOST_USER = 'autsav73@gmail.com'
+# EMAIL_HOST_PASSWORD = 'Asth@4ever'
+# EMAIL_PORT =578
+
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
