@@ -32,6 +32,7 @@ urlpatterns = [
     path('forms/',include('formpractice.urls')),
     path('static-demo/',include('staticmedia.urls')),
     path('crud/',include('crud.urls', namespace='crud')),
+    path('c/',include('classbased.urls', namespace='classbased')),
 
     path('admin/',admin.site.urls),
 

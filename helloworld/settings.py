@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'mypractice',
     'staticmedia',
     'crud',
+    'classbased',
     'user',
     
 ]
