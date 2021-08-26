@@ -37,6 +37,7 @@ urlpatterns = [
     path('crud/',include('crud.urls', namespace='crud')),
     path('c/',include('classbased.urls', namespace='classbased')),
     path('userprofile/',include('userprofile.urls', namespace='userprofile')),
+    path('rest/',include('rest.urls')),
 
 
     path('admin/',admin.site.urls),

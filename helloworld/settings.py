@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'classbased',
     'userprofile',
     'user',
+    'rest',
     
 ]
 
