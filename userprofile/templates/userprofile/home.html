@@ -1,1 +1,7 @@
-hello
+{% load cache %}
+
+{% cache 500 body request.user %}
+
+Add Cache Body here
+{% endcache %}
+

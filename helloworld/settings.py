@@ -84,12 +84,21 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'helloworld.wsgi.application'
 
+# for database caching
 # CACHES = {
 #     'default':{
 #         'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
 #         'LOCATION':'Cache_Table'
 #     }
 # }
+
+# for file caching
+CACHES = {
+    'default': {
+        'BACKEND': 'django.core.cache.backends.filebased.FileBasedCache',
+        'LOCATION': 'c:/Users/utsab/Documents/helloworld/cache_file',
+    }
+}
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
