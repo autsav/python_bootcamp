@@ -1,10 +1,10 @@
 from accounts.forms import LoginForm
 from django.shortcuts import redirect, render
 # from accounts.forms import LoginForm
-from .forms import LoginForm
+from .forms import LoginForm, SignUpForm
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
-
+from user.models import User
 
 # Create your views here.
 def login_view(request):
@@ -40,3 +40,29 @@ def profile_view(request):
 def logout_view(request):
     logout(request)
     return redirect('/accounts/login/')
+
+def signup_view(request):
+    if request.method == 'POST':
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            print("Form is valid")
+            print(form.cleaned_data)
+            # from django.contrib.auth.models import User
+            
+
+            user = User(
+                username = form.cleaned_data['username'],
+                first_name = form.cleaned_data['first_name'],
+                last_name = form.cleaned_data['last_name'],
+                email = form.cleaned_data['email'],
+                password = form.cleaned_data['password'],
+                confirm_password = form.cleaned_data['confirm_password'],
+            )
+            user.set_password(form.cleaned_data['password'])
+            user.save()
+            return redirect('/accounts/login/')
+            
+    elif request.method == 'GET':
+        form = SignUpForm()
+
+    return render(request, 'accounts/signup.html', {'form': form})

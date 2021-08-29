@@ -166,7 +166,9 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelsBackend']
+AUTH_USER_MODEL = ''
 AUTH_USER_MODEL = 'user.User'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -187,3 +189,6 @@ EMAIL_PORT = '2525'
 
 LOGIN_URL = 'login'
 LOGIN_REDIRECT_URL = 'home'
+
+# uncomment The code below to login even though is_active is false
+# AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUserModelBackend']
