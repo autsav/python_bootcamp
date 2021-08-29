@@ -8,5 +8,9 @@
 </head>
 <body>
     <h1>This is Profile </h1>
+Cick <a href="/accounts/logout/">here</a> to logout <br><br>
+Name: {{ request.user.get_full_name }}<br>
+Email: {{ request.user.email }}<br>
+Username: {{ request.user.username }}
 </body>
 </html>
