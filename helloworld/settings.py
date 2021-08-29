@@ -51,6 +51,8 @@ INSTALLED_APPS = [
     'userprofile',
     'user',
     'rest',
+    'rest_framework',
+    'accounts',
     
 ]
 
