@@ -2,7 +2,7 @@ from django.http.response import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework import serializers
 from rest_framework.parsers import JSONParser
-from .serializers import AddTwoNumberSerializer
+from .serializers import AddTwoNumberSerializer, InfoSerializer
 # from django.shortcuts import render
 
 # Create your views here.
@@ -66,3 +66,11 @@ def add_two_numbers_in_rest(request):
         # print('down')
         # print(serializer.errors)
         # return Response({'error':'Something went wrong'}, status=400)
+    @api_view(['GET', 'POST','PUT','DELETE'])
+    def info_view(request, pk=None):
+        if request.method == 'GET':
+            qs= Info.objects.all()
+            result = []
+            for i in qs:
+                serializer = InfoSerializer(instance=qs, many=True)
+                return Response(serializer.data)

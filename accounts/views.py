@@ -5,6 +5,7 @@ from .forms import LoginForm, SignUpForm
 from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
 from user.models import User
+from django.urls import reverse_lazy
 
 # Create your views here.
 def login_view(request):
