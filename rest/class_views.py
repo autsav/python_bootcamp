@@ -15,6 +15,7 @@ class InfoClassBasedViews(APIView):
 
     def get(self, request, *args, **kwargs):
         qs = Info.objects.all()
+        # print(qs)
         serializer = InfoModelSerializer(instance=qs, many=True)
         return Response(serializer.data)
         
