@@ -6,10 +6,13 @@ from django.contrib.auth import authenticate,login, logout
 from django.contrib.auth.decorators import login_required
 from user.models import User
 from django.urls import reverse_lazy
+from django.http import HttpResponse
 
 # Create your views here.
 def login_view(request):
     if request.method == 'POST':
+        
+        # print('login view')
         print(request.POST)
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -26,6 +29,8 @@ def login_view(request):
         if request.user.is_authenticated:
             return redirect('/accounts/profile/')
         form = LoginForm()
+        
+    
 
     return render(request,'accounts/login.html',{'form': form})
 

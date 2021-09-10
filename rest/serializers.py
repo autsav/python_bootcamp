@@ -27,7 +27,8 @@ class InfoModelSerializer(serializers.ModelSerializer):
     message = serializers.SerializerMethodField()
     class Meta:
         model= Info
-        fields = ['name', 'address','message']
+        fields = ['name', 'address','message','id']
+        read_only_fields = ['id']#read only field doesn't allow post
     @staticmethod
     def get_message(obj):
         name = obj.name
