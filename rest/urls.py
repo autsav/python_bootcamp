@@ -1,6 +1,7 @@
 from django.urls import path
 from rest.viewset_views import InfoModelViewSet
 from rest_framework.routers import DefaultRouter
+from rest_framework.authtoken.views import obtain_auth_token
 
 from .views import add_two_numbers,add_two_numbers_in_rest, info_view
 from .class_views import InfoClassBasedViews
@@ -24,5 +25,6 @@ urlpatterns = [
     path('info/generic/update/<int:pk>/',InfoModelUpdateAPIView.as_view()),
     path('info/generic/detail/<int:pk>/',InfoModelRetrieveAPIView.as_view()),
     # path('info/view-set/',InfoModelViewSet.as_view(actions={'get':'list','post':'create'})),
+    path('login/', obtain_auth_token)
     
 ]+r.urls
