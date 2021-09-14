@@ -41,7 +41,16 @@ def profile_view(request):
     #     pass
     # else:
     #     pass
-    return render(request,'accounts/profile.html')
+
+    #this context is passed for statusapp
+    from statusapp.models import StatusMessage
+    # messages = StatusMessage.objects.filter(user= request.user)
+    messages = StatusMessage.objects.filter(user_id= request.user.id)
+    messages = StatusMessage.objects.all()
+    # print(messages)
+    return render(request,'accounts/profile.html',{
+        'messages':messages
+    })
 
 def logout_view(request):
     logout(request)

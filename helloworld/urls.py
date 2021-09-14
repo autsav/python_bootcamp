@@ -46,6 +46,8 @@ urlpatterns = [
     path('', user_views.home, name='home'),
     path('contact/',user_views.contact, name='contact'),
     path('accounts/',include('accounts.urls', namespace='accounts')),
+    path('statusapp/',include('statusapp.urls', namespace='statusapp')),
+
 
 
     

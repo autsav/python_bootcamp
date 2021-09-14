@@ -8,9 +8,28 @@
 </head>
 <body>
     <h1>This is Profile </h1>
-Cick <a href="/accounts/logout/">here</a> to logout <br><br>
+ <a href="/accounts/logout/">Logout</a><br>
+ <a href="{% url 'statusapp:create' %}">Create Status Message</a><br>
+{% comment %} Click <a href="{% url 'crud:create' %}">here</a> to create status message <br><br> {% endcomment %}
+
+
 Name: {{ request.user.get_full_name }}<br>
 Email: {{ request.user.email }}<br>
-Username: {{ request.user.username }}
+Username: {{ request.user.username }}<br>
+{% comment %} Bio: {{ request.user.bio }}<br> {% endcomment %}
+
+<hr>
+{% for msg in messages %}
+    Status: <b>{{ msg.status}}<b>
+    User: <b>{{ msg.user.email}}<b>
+    Created At: <b>{{ msg.created_at}}<b>
+    {% if msg.user == request.user %}
+        <a href="{% url 'statusapp:delete' msg.id %}">Delete</a> 
+    {% endif %}
+     
+
+    <hr><br>
+{% endfor %}
+
 </body>
 </html>
